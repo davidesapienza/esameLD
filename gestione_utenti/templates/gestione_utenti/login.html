@@ -1,0 +1,64 @@
+{% extends "gestione_utenti/base.html" %}
+    {% block head %}
+        {% load staticfiles %}
+
+
+    {% endblock %}
+    {% block body %}
+
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Login</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="basic-login">
+							<form role="form" role="form" method="post" id="login_form">
+                                {% csrf_token %}
+								<div class="form-group">
+		        				 	<label for="login-username"><i class="icon-user"></i> <b>Username <span class="required">*</span></b></label>
+									<input name="username" class="text requiredField" class="form-control" id="login-username" type="text" placeholder="" >
+
+								</div>
+								<div class="form-group">
+		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Password <span class="required">*</span></b></label>
+									<input name="password" class="text requiredField" class="form-control" id="login-password" type="password" placeholder="" >
+								</div>
+								<div class="form-group">
+                                    {% if messaggio %}
+                                         <a class="forgot-password">{{ messaggio }}</a>
+                                    {% else %}
+                                        <p> <br /> </p>
+                                        <a class="forgot-password"><br /></a>
+                                    {% endif %}
+
+									<button type="submit" class="btn pull-right">Login</button>
+									<div class="clearfix"></div>
+								</div>
+                                <input type="hidden" name="next" id="next" value="{{ next_url }}"/>
+							</form>
+						</div>
+					</div>
+					<div class="col-sm-7 social-login">
+						 <div >
+                             <p>Effettua il login per accedere alle aste</p>
+                             <p>Se non sei registrato: <a href="{% url 'gestione_utenti:registrazione' %}">Registrati</a></p>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+    {% endblock %}
+</html>

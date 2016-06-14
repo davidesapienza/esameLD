@@ -1,0 +1,252 @@
+{% extends "gestione_catalogo/base.html" %}
+    {% block head %}
+        {% load staticfiles %}
+
+        <script>
+            function startTime() {
+                var today=new Date();
+                var h=today.getHours();
+                var m=today.getMinutes();
+                var s=today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+                var t = setTimeout(function(){startTime()},500);
+            }
+            function checkTime(i) {
+                if (i<10) {i = "0" + i};
+                return i;
+            }
+        </script>
+    {% endblock %}
+    {% block body %}
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <!-- Homepage Slider -->
+        <div class="homepage-slider">
+        	<div id="sequence">
+				<ul class="sequence-canvas">
+					<!-- Slide 1 -->
+					<li class="bg4">
+						<!-- Slide Title -->
+						<h2 class="title">Serietà</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">Fai i tuoi acquisti in modo sicuro e conveniente</h3>
+						<!-- Slide Image -->
+						<img class="slide-img" src="{% static 'gestione_catalogo/img/martello.jpeg' %}" alt="Martello 1" />
+					</li>
+					<!-- End Slide 1 -->
+					<!-- Slide 2 -->
+					<li class="bg3">
+						<!-- Slide Title -->
+						<h2 class="title">Affidabilità</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">Vendi e compra in un click!</h3>
+						<!-- Slide Image -->
+						<img class="slide-img" src="{% static 'gestione_catalogo/img/astenuove.jpg' %}" alt="Aste nuove 1" />
+					</li>
+					<!-- End Slide 2 -->
+					<!-- Slide 3 -->
+					<li class="bg1">
+						<!-- Slide Title -->
+						<h2 class="title">Convenienza</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">Trovi tutte le offerte che vuoi! Sbrigati!</h3>
+						<!-- Slide Image -->
+						<img class="slide-img" src="{% static 'gestione_catalogo/img/astevecchie.jpg' %}" alt="Aste vecchie 1" />
+					</li>
+					<!-- End Slide 3 -->
+				</ul>
+				<div class="sequence-pagination-wrapper">
+					<ul class="sequence-pagination">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        <!-- End Homepage Slider -->
+
+		<!-- Press Coverage -->
+<!--        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="in-press press-wired">
+							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="in-press press-mashable">
+							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="in-press press-techcrunch">
+							<a href="#">Morbi eleifend congue elit nec sagittis. Praesent aliquam lobortis tellus, nec consequat vitae</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+-->		<!-- Press Coverage -->
+
+		<!-- Services -->
+<!--    <div class="section">
+	        <div class="container">
+	        	<div class="row">
+	        		<div class="col-md-4 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="{% static 'gestione_catalogo/img/service-icon/diamond.png' %}" alt="Service 1">
+		        			<h3>Aliquam in adipiscing</h3>
+		        			<p>Praesent rhoncus mauris ac sollicitudin vehicula. Nam fringilla turpis turpis, at posuere turpis aliquet sit amet condimentum</p>
+		        			<a href="#" class="btn">Read more</a>
+		        		</div>
+	        		</div>
+	        		<div class="col-md-4 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="{% static 'gestione_catalogo/img/service-icon/ruler.png' %}" alt="Service 2">
+		        			<h3>Curabitur mollis</h3>
+		        			<p>Suspendisse eget libero mi. Fusce ligula orci, vulputate nec elit ultrices, ornare faucibus orci. Aenean lectus sapien, vehicula</p>
+		        			<a href="#" class="btn">Read more</a>
+		        		</div>
+	        		</div>
+	        		<div class="col-md-4 col-sm-6">
+	        			<div class="service-wrapper">
+		        			<img src="{% static 'gestione_catalogo/img/service-icon/box.png' %}" alt="Service 3">
+		        			<h3>Vivamus mattis</h3>
+		        			<p>Phasellus posuere et nisl ac commodo. Nulla facilisi. Sed tincidunt bibendum cursus. Aenean vulputate aliquam risus rutrum scelerisque</p>
+		        			<a href="#" class="btn">Read more</a>
+		        		</div>
+	        		</div>
+	        	</div>
+	        </div>
+	    </div>
+-->	    <!-- End Services -->
+
+		<!-- Call to Action Bar -->
+<!--	    <div class="section section-white">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="calltoaction-wrapper">
+							<h3>It's a free multipurpose Bootstrap 3 template!</h3> <a href="http://www.dragdropsite.com" class="btn btn-orange">Download here!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+-->		<!-- End Call to Action Bar -->
+
+		<!-- Aste in scadenza -->
+	<!--    <div class="section">
+			<div class="container">
+				<h2>Aste in scadenza:</h2>
+
+				<div class="row">
+					<!-- Testimonial -->
+	<!--				<div class="testimonial col-md-4 col-sm-6">
+						<!-- Author Photo -->
+	<!--					<div class="author-photo">
+							<img src="{% static 'gestione_catalogo/img/user1.jpg' %}" alt="Author 1">
+                            <p>ciao<\p>
+						</div>
+						<div class="testimonial-bubble">
+							<blockquote>
+								<!-- Quote -->
+	<!--							<p class="quote">
+		                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+                        		</p>
+                        		<!-- Author Info -->
+    <!--                    		<cite class="author-info">
+                        			- Name Surname,<br>Managing Director at <a href="#">Some Company</a>
+                        		</cite>
+                        	</blockquote>
+                        	<div class="sprite arrow-speech-bubble"></div>
+                        </div>
+                    </div>
+                    <!-- End Testimonial -->
+  <!--                  <div class="testimonial col-md-4 col-sm-6">
+						<div class="author-photo">
+							<img src="{% static 'gestione_catalogo/img/user5.jpg' %}" alt="Author 2">
+						</div>
+						<div class="testimonial-bubble">
+							<blockquote>
+								<p class="quote">
+		                            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+                        		</p>
+                        		<cite class="author-info">
+                        			- Name Surname,<br>Managing Director at <a href="#">Some Company</a>
+                        		</cite>
+                        	</blockquote>
+                        	<div class="sprite arrow-speech-bubble"></div>
+                        </div>
+                    </div>
+					<div class="testimonial col-md-4 col-sm-6">
+						<div class="author-photo">
+							<img src="{% static 'gestione_catalogo/img/user2.jpg'%}" alt="Author 3">
+						</div>
+						<div class="testimonial-bubble">
+							<blockquote>
+								<p class="quote">
+		                            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                        		</p>
+                        		<cite class="author-info">
+                        			- Name Surname,<br>Managing Director at <a href="#">Some Company</a>
+                        		</cite>
+                        	</blockquote>
+                        	<div class="sprite arrow-speech-bubble"></div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+	    </div>-->
+	    <!-- End Aste in scadenza -->
+
+		<!-- Pricing Table -->
+	    <div class="section">
+	    	<div class="container">
+	    		<h2>Aste in scadenza</h2>
+	        	<div class="row">
+	        		<!-- Pricing Plans Wrapper -->
+	        		<!--<div class="pricing-wrapper col-md-12">
+                        <!-- qui secondo me inserisce il for -->
+                        <section>
+                            {% if aste %}
+                                {% for a in aste  %}
+
+                                    <div class="pricing-plan">
+							            <h2 class="pricing-plan-title">{{ a.nome }}</h2>
+                                        {% for p in puntate %}
+                                            {% if p.idasta == a %}
+    							                <p class="pricing-plan-price">{{ p.importo }}<span>€</span></p>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <ul class="pricing-plan-features">
+									        <li><strong>Scade: {{ a.scadenza.date }},{{ a.scadenza.time }}</strong></li>
+                                            <li>{{ startTime }}</li>
+								        </ul>
+
+                                        <ul class="pricing-plan-features">
+									        <li><strong>{{ a.descrizione }}</strong></li>
+								        </ul>
+							            <a href="{% url 'gestione_acquisti:elem_asta' a.id%}" class="btn">Dettagli</a>
+					                </div>
+                                {% endfor %}
+
+                            {% else %}
+                            <p>Non ci sono aste disponibili</p>
+                            {% endif %}
+        				</section>
+	        	</div>
+	    	</div>
+	    </div>
+	    <!-- End Pricing Table -->
+
+
+    {% endblock %}
+</html>

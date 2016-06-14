@@ -1,0 +1,58 @@
+{% extends "gestione_utenti/base.html" %}
+    {% block head %}
+        {% load staticfiles %}
+
+
+    {% endblock %}
+    {% block body %}
+         <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Benvenuto {{ request.user.username|capfirst }},</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+
+
+						 <div >
+                             <p>{{ messaggio }}</p>
+                        </div>
+
+				</div>
+                <div class="row">
+                    <h2>Riepilogo dati personali:</h2>
+
+            <table>
+                <tr>
+                    <td><strong>Nome:</strong></td>
+                    <td>{{ request.user.nome }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Cognome:</strong></td>
+                    <td>{{ request.user.cognome }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>{{ request.user.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Indirizzo:</strong></td>
+                    <td>{{ request.user.indirizzo|linebreaksbr }}</td>
+                </tr>
+            </table>
+                </div>
+			</div>
+		</div>
+
+
+
+    {% endblock %}
+</html>
+

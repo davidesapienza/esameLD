@@ -1,0 +1,52 @@
+{% extends "gestione_utenti/base.html" %}
+    {% block head %}
+        {% load staticfiles %}
+
+
+    {% endblock %}
+    {% block body %}
+
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Crea Asta</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="basic-login">
+                        <form  method="post">{% csrf_token %}
+                            {{form.as_p}}
+                            <div class="form-group">
+                                <label for="importo"><i class="icon-lock"></i> <b>Base d'asta <span class="required">*</span></b></label>
+                                <input name="importo" class="text requiredField" class="form-control" id="importo" type="number" placeholder="" >
+                            </div>
+                            <div class="form-group">
+                                {% if messaggio %}
+                                    <a class="forgot-password">{{ messaggio }}</a>
+                                {% else %}
+                                    <p> <br /> </p>
+                                    <a class="forgot-password"><br /></a>
+                                {% endif %}
+
+                                <button type="submit" class="btn pull-right">Inserisci Asta</button>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+    {% endblock %}
+</html>

@@ -1,0 +1,141 @@
+{% extends "gestione_catalogo/base.html" %}
+
+    {% block head %}
+        {% load staticfiles %}
+
+
+    {% endblock %}
+
+    {% block body %}
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>{{ categoria.nome }}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="eshop-section section">
+	    	<div class="container">
+	    		<h2>Aste in scadenza per {{ categoria.nome }}</h2>
+                <section>
+				    <div class="row">
+                    <!-- da qui il for-->
+
+                            {% if in_scadenza %}
+                                <!--{ count=1 }-->
+                                {% for a in in_scadenza %}
+                                    <div class="col-md-3 col-sm-6">
+						                <!-- Product -->
+						                <div class="shop-item">
+							                <!-- Product Image -->
+							                <!--<div class="shop-item-image">
+								                <a href="page-product-details.html"><img src="img/product1.jpg" alt="Item Name"></a>
+							                </div>-->
+							                <!-- Product Title -->
+							                <div class="title">
+								                <h3><a href="page-product-details.html">{{ a.nome }}</a></h3>
+							                </div>
+							                <!-- Product Available Colors-->
+							                <div class="price">
+							                	<p> scadenza:{{ a.scadenza.date }} {{ a.scadenza.time }}</p>
+							                </div>
+							                <!-- Product Price-->
+							                <div class="price">
+							                	{% if puntatein %}
+                                                    {% for p in puntatein %}
+                                                        {% if p.idasta == a %}
+                                                            <p>{{ p.importo }}</p>
+
+                                                        {% endif %}
+
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+							                <!-- Add to Cart Button -->
+							                <div class="actions">
+								                <a href="{% url 'gestione_acquisti:elem_asta' a.id %}" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i>Dettagli</a>
+							                </div>
+						                </div>
+						                <!-- End Product -->
+					                </div>
+                                    <!-- qui devo mettere l'if sul numero delle iterazioni
+                                    se == 4 allora vai a capo
+                                    -->
+                                    <!-- se 4-count è >0 allora incrementa count, altrimenti cambia riga-->
+                                    <!--{ if 4-count }
+                                        { count++ }
+                                    { else }
+                                        { count=1 }-->
+                                        </div>
+				                        <div class="row">
+                                    <!--{ endif }-->
+
+                                {% endfor %}
+
+                            {% else %}
+                            <p>Non ci sono aste disponibili</p>
+                            {% endif %}
+
+				    </div>
+                </section>
+
+			</div>
+	    </div>
+
+	    <div class="eshop-section section">
+	    	<div class="container">
+	    		<h2>Aste già terminate per {{ categoria.nome }}</h2>
+				<div class="row">
+                    <section>
+                            {% if scadute %}
+                                {% for a in scadute %}
+                                    <div class="col-md-3 col-sm-6">
+						                <div class="shop-item">
+							                <!--<div class="shop-item-image">
+								                <a href="page-product-details.html"><img src="img/product1.jpg" alt="Item Name"></a>
+							                </div>-->
+							                <div class="title">
+								                <h3><a href="page-product-details.html">{{ a.nome }}</a></h3>
+							                </div>
+
+							                <div class="price">
+                                                {% if puntatesca %}
+                                                    {% for p in puntatesca %}
+                                                        {% if p.idasta == a %}
+                                                            <p>{{ p.importo }}</p>
+
+                                                        {% endif %}
+
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+							                <div class="actions">
+								                <a href="{% url 'gestione_acquisti:elem_asta' a.id%}" class="btn btn-small"><i class="icon-shopping-cart icon-white"></i>Dettagli</a>
+							                </div>
+						                </div>
+					                </div>
+
+                                {% endfor %}
+
+                            {% else %}
+                            <p>Non ci sono aste finite disponibili</p>
+                            {% endif %}
+                    </section>
+
+				</div>
+			</div>
+	    </div>
+
+
+
+
+    {% endblock %}
+</html>

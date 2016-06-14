@@ -1,0 +1,106 @@
+{% extends "gestione_utenti/base.html" %}
+    {% block head %}
+        {% load staticfiles %}
+
+
+    {% endblock %}
+    {% block body %}
+
+        <!-- Page Title -->
+		<div class="section section-breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Login</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+					<div class="basic-login">
+                        <form role="form" role="form" method="post" id="login_form">
+                            <!--<div class="col-sm-5">
+-->                         <table>
+                                {% csrf_token %}
+                                <!--username-->
+                                <tr>
+								<div class="form-group">
+		        				 	<td><label for="login-username"><i class="icon-user"></i> <b>Username <span class="required">*</span></b></label></td>
+									<td><input name="username" class="text requiredField" class="form-control" id="login-username" type="text" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--password-->
+                                <tr>
+								<div class="form-group">
+		        				 	<td><label for="login-password"><i class="icon-lock"></i> <b>Password <span class="required">*</span></b></label></td>
+									<td><input name="password" class="text requiredField" class="form-control" id="login-password" type="password" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--conferma password-->
+                                <tr>
+								<div class="form-group">
+		        				 	<td><label for="login-passwordconf"><i class="icon-lock"></i> <b>Conferma Password <span class="required">*</span></b></label></td>
+									<td><input name="passwordconf" class="text requiredField" class="form-control" id="login-passwordconf" type="password" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--nome-->
+                                <tr>
+                                <div class="form-group">
+		        				 	<td><label for="login-nome"><i class="icon-lock"></i> <b>Nome <span class="required">*</span></b></label></td>
+									<td><input name="nome" class="text requiredField" class="form-control" id="login-nome" type="text" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--cognome-->
+                                <tr>
+                                <div class="form-group">
+		        				 	<td><label for="login-cognome"><i class="icon-lock"></i> <b>Cognome <span class="required">*</span></b></label></td>
+									<td><input name="cognome" class="text requiredField" class="form-control" id="login-cognome" type="text" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--indirizzo-->
+                                <tr>
+                                <div class="form-group">
+		        				 	<td><label for="login-indirizzo"><i class="icon-lock"></i> <b>Indirizzo <span class="required">*</span></b></label></td>
+									<td><input name="indirizzo" class="text requiredField" class="form-control" id="login-indirizzo" type="text" placeholder="" ></td>
+								</div>
+                                </tr>
+                                <!--email-->
+                                <tr>
+                                <div class="form-group">
+		        				 	<td><label for="login-email"><i class="icon-lock"></i> <b>Email <span class="required">*</span></b></label></td>
+									<td><input name="email" class="text requiredField" class="form-control" id="login-email" type="email" placeholder="" ></td>
+								</div>
+                                </tr>
+                            </table>
+								<div class="form-group">
+                                    {% if messaggio %}
+                                         <a class="forgot-password">{{ messaggio }}</a>
+                                    {% else %}
+                                        <p> <br /> </p>
+                                        <a class="forgot-password"><br /></a>
+                                    {% endif %}
+
+									<button type="submit" class="btn pull-right">Registrati</button>
+									<div class="clearfix"></div>
+								</div>
+
+   <!--                         </div>
+                            <div class="col-sm-7 social-login">
+		-->				        <div >
+
+                                </div>
+		<!--			        </div>
+            -->            </form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+    {% endblock %}
+</html>
